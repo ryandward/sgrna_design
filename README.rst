@@ -1,49 +1,47 @@
+Note: These scripts are similar to the scripts from the https://github.com/traeki/sgrna_design repository, except they have been modified to yield bedtools compatible output. Additionally, NCBI Entrez Direct Utilities compatible scripts have been given as suggestions.
+
 sgRNA Design Scripts
 ====================
 Author: John S. Hawkins [really@gmail.com]
-Prerequisites
+*Installation Guide*
 -------------------------------------------------
 
-*   bowtie
+It is recommended to use the following command to obtain the prerequisites using Conda in a new environment called "sgrna_design":
+::
+    conda create -n sgrna_design -c bioconda 'bowtie=1.*' biopython pysam entrez-direct git 'python>3'
 
-**IMPORTANT NOTE**: **bowtie2** is not just "the new version", it's actually
-functionally different.  This code **specifically requires** that you have
-installed **bowtie**.  bowtie2's differences preclude its use for this purpose.
-It's fine if you have *both* installed, provided that 'bowtie' resolves to the
-non-bowtie2 version in your enviroment.
+Activate the Conda environment called "sgrna_design":
+::
+    conda activate -n sgrna_design
+    
+Create a local copy of this repository and move into that directory:
+::
+    git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design
 
-* bowtie-build (should come with bowtie)
+Since the environment contains the NCBI Entrez Direct Utilities package, it is also recommended to download the bacterial chromosomes directly from NCBI. 
 
-* the Biopython library suite for python (can be installed with pip)
+First, set a bash variable equal to the chromosome of interest, in this case we have chosen "U00096.3".
+::
+    GUIDE_TARGET="U00096.3"
 
-* the pysam library for python (can be installed with pip)
+Download the chromosome genbank file directly from NCBI:
+::
+    efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."
 
-How to use this code
+-------------------------------------------------
+
+Then, use this script to generate a list of sgRNA targets.
+
+Results will be given a name corresponding to the chromosome defined above as GUIDE_TARGET by appending _sgrna.tsv yielding: ${GUIDE_TARGET}_sgrna.tsv". 
+
+For this example, the list is given as "U00096.3_sgrna.tsv" 
+::
+    ./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"
+
+
+Best Usage from traeki repo:
+
 --------------------
-
-Primarily you will use the script buid_sgrna_library.py.  See
-
-::
-
-    build_sgrna_library.py -h
-
-for usage information.
-
-The normal usage case is to call the script with a genbank file like so:
-
-::
-
-    ./build_sgrna_library.py --input_genbank_genome_name testdata/U00096.3_full_sequence.gb
-
-Which will generate an adjacent file called
-
-::
-
-    testdata/U00096.3_full_sequence.targets.all.tsv
-
-which specified all of the targets for the provided genome (the test genome, in
-this case), annotated with the locus_tag, and scored for specificity (the final
-column)
 
 For bacteria we suggest using guides that
 
