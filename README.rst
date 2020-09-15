@@ -9,7 +9,6 @@ This set of instructions is meant to be used as a guide to automate the workflow
 
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
 ----------------------------------------------------------------------------------------------
-
 Throughout this guide, we call the environment **sgrna_design**. 
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
