@@ -27,6 +27,9 @@ Create a local copy of this repository and move into **sgrna_design** directory.
 
 ``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 Set a bash variable equal to the chromosome of interest.
 --------------------------------------------------------
 
