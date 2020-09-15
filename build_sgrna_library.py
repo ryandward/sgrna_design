@@ -278,7 +278,7 @@ def label_targets(targets,
     per_chrom_bounds[chrom] = (0,0) # Check out the bound variables
   for i, x in enumerate(target_regions):
     (gene, chrom, gene_start, gene_end, gene_strand) = x
-    if i % 100 is 0:
+    if i % 100 == 0:
       logging.info('Examining gene {i} [{gene}].'.format(**vars()))
     front, back = per_chrom_bounds[chrom]
     reverse_strand_gene = gene_strand == '-'
