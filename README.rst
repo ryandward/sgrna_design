@@ -30,10 +30,12 @@ Create a local copy of this repository and move into **sgrna_design** directory.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Set a bash variable equal to the chromosome of interest.
+Set a envionment variable equal to the accession number of the chromosome of interest.
 =================
 
-In this case we have chosen **U00096.3**
+In any POSIX shell -- including bash, zsh, and fish -- the syntax is the same to define a variable. 
+
+In this case we have chosen **U00096.3**, the circular chromosome from *Escherichia coli* MG1655. The accession number is listed underneath the chromosome title -- here as **GenBank: U00096.3** from https://www.ncbi.nlm.nih.gov/nuccore/U00096. If you're not sure, check out the link and search for your organism.
 
 ``GUIDE_TARGET="U00096.3"``
 
@@ -43,7 +45,7 @@ In this case we have chosen **U00096.3**
 Fetch the chromosome feature file, in genbank format.
 =================
 
-Since the environment contains the NCBI Entrez Direct Utilities package, it is also &&highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as input to extract suitable sgRNA targets.
+Since the environment contains the NCBI Entrez Direct Utilities package, it is also **highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as sole input to extract suitable sgRNA targets.
 
 
 ``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."``
