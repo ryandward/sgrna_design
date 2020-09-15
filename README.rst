@@ -52,6 +52,8 @@ Since the environment contains the NCBI Entrez Direct Utilities package, it is a
 
 ``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."``
 
+NCBI sometimes fails without warning, a failsafe has been built into this step. If you see the warning *Emtpy file, try efetch step again.*, just hit the up arrow, and re-run this command.
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use build_sgrna_library.py to generate a list of sgRNA targets.
