@@ -81,7 +81,7 @@ Accessing Results
 
 Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending **_sgrna.tsv**. 
 
-In this example, view the file "U00096.3_sgrna.tsv". This file is fully compatible with both LibreOffice and Excel.
+In this example, view the file **U00096.3_sgrna.tsv**. This file is fully compatible with both LibreOffice and Excel. Ensure that when importing, you choose variable length columns with **tab** as the delimiter.
 
 Briefly check that the results are available before moving on.
 
