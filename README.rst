@@ -13,10 +13,14 @@ Throughout this guide, we call the environment **sgrna_design**.
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Activate the environment.
 -----------------------------------------------------
 
 ``conda activate -n sgrna_design``
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
 Create a local copy of this repository and move into **sgrna_design** directory.
 --------------------------------------------------------------------
@@ -30,6 +34,8 @@ In this case we have chosen **U00096.3**
 
 ``GUIDE_TARGET="U00096.3"``
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Fetch the chromosome feature file, in genbank format.
 ---------------------------------
@@ -38,6 +44,8 @@ Since the environment contains the NCBI Entrez Direct Utilities package, it is a
 
 
 ``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."``
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use build_sgrna_library.py to generate a list of sgRNA targets.
 ----------------------------------------------------------------
