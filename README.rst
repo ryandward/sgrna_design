@@ -26,14 +26,16 @@ Download the chromosome genbank file directly from NCBI:
 ::
     efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."
 
-Use build_sgrna_library.py to generate a list of sgRNA targets.
-====================
+##Use build_sgrna_library.py to generate a list of sgRNA targets.
+It is recommended to use the following parameters to run the script.
 
-Results will be given a name corresponding to the chromosome defined above as GUIDE_TARGET by appending _sgrna.tsv yielding: ${GUIDE_TARGET}_sgrna.tsv". 
+```
+./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"
 
-For this example, the list is given as "U00096.3_sgrna.tsv" 
-::
-    ./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"
+```
+
+Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending "_sgrna.tsv". In this example: "U00096.3_sgrna.tsv".
+
 -------------------------------------
 
 Notes from the orignal branch:
