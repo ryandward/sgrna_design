@@ -1,14 +1,14 @@
 Note: These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
 
-Before installing, create an appropriate Conda environment by following this guide
-==================================================================================
+Using conda, create an environment to acquire the dependencies and their appropriate versions.
+==============================================================================================
 
-It is recommended to use the following command to obtain the prerequisites using Conda in a new environment called "sgrna_design":
+Throughout this guide, we call the environment **sgrna_design**. 
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
 
-Activate the Conda environment called "sgrna_design":
+Activate the environment.
 -----------------------------------------------------
 
 ``conda activate -n sgrna_design``
