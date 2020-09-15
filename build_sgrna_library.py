@@ -290,20 +290,20 @@ def label_targets(targets,
     if allow_partial_overlap:
       # Shift back index until target.start >= gene_end
       while (back < len(chrom_targets) and
-             chrom_targets[back].start < gene_end):
+             chrom_targets[back].start + 1 < gene_end):
         back += 1
       # Shift front index until target.end > gene_start
       while (front < len(chrom_targets) and
-             chrom_targets[front].end <= gene_start):
+             chrom_targets[front].end + 1 <= gene_start):
         front += 1
     else:
       # Shift back index until target.end > gene_end
       while (back < len(chrom_targets) and
-             chrom_targets[back].end <= gene_end):
+             chrom_targets[back].end + 1 <= gene_end):
         back += 1
       # Shift front index until target.start >= gene_start
       while (front < len(chrom_targets) and
-             chrom_targets[front].start < gene_start):
+             chrom_targets[front].start + 1 < gene_start):
         front += 1
     overlap = chrom_targets[front:back]
     per_chrom_bounds[chrom] = (front, back) # Return bound vars to shelf
