@@ -25,10 +25,11 @@ In this case we have chosen **U00096.3**
 
 ``GUIDE_TARGET="U00096.3"``
 
-Fetch the chromosome genbank file.
+
+Fetch the chromosome feature file, in genbank format.
 ---------------------------------
 
-Since the environment contains the NCBI Entrez Direct Utilities package, it is also &&highly** recommended to download the bacterial chromosomes directly from NCBI.
+Since the environment contains the NCBI Entrez Direct Utilities package, it is also &&highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as input to extract suitable sgRNA targets.
 
 
 ``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."``
