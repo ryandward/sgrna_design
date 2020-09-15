@@ -17,8 +17,10 @@ Create a local copy of this repository and move into that directory:
 
 ``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
-First, set a bash variable equal to the chromosome of interest, in this case we have chosen "U00096.3".
+First, set a bash variable equal to the chromosome of interest.
 -------------------------------------------------------------------------------------------------------
+
+In this case we have chosen **U00096.3**
 
 ``GUIDE_TARGET="U00096.3"``
 
@@ -42,7 +44,7 @@ It is recommended to use the following parameters to run the script, and will wo
 Accessing Results
 =================
 
-Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending "_sgrna.tsv". 
+Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending **_sgrna.tsv**. 
 
 In this example, view the file "U00096.3_sgrna.tsv". This file is fully compatible with both LibreOffice and Excel.
 
