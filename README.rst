@@ -11,7 +11,7 @@ Author: John S. Hawkins [really@gmail.com]
 
 It is recommended to use the following command to obtain the prerequisites using Conda in a new environment called "sgrna_design":
 ::
-    conda create -n sgrna_design -c bioconda 'bowtie=1.*' biopython pysam entrez-direct git 'python>3'
+    conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'
 
 Activate the Conda environment called "sgrna_design":
 ::
