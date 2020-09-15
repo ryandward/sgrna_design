@@ -1,8 +1,8 @@
 Note: These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
 
-**Before installing, create an appropriate Conda environment by following this guide**
-=======================================================================================
+Before installing, create an appropriate Conda environment by following this guide
+==================================================================================
 
 It is recommended to use the following command to obtain the prerequisites using Conda in a new environment called "sgrna_design":
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
@@ -42,7 +42,13 @@ It is recommended to use the following parameters to run the script, and will wo
 Accessing Results
 =================
 
-Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending "_sgrna.tsv". In this example: "U00096.3_sgrna.tsv".
+Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending "_sgrna.tsv". 
+
+In this example, view the file "U00096.3_sgrna.tsv". This file is fully compatible with both LibreOffice and Excel.
+
+Briefly check that the results are available before moving on.
+
+``column -ts $'\t' ${GUIDE_TARGET}_sgrna.tsv | less``
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
