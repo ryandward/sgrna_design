@@ -22,10 +22,10 @@ Activate the environment.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
-Create a local copy of this repository and move into **sgrna_design** directory.
+Create a local copy of this repository and move into sgrna_design directory.
 =================
 
-This step automates downloading the current iteration of this sgrna_design project into any directory on your computer. After successfully acquiring this project, you change into the project directory.
+This step automates downloading the current iteration of this **sgrna_design** project into your present directory on your commandline. Navigate somewhere you'd like to install before continuing. After successfully acquiring this project, you change into the sgrna_design directory.
 
 ``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
