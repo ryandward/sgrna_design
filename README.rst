@@ -8,7 +8,7 @@ This set of instructions is meant to be used as a guide to automate the workflow
 
 
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
-----------------------------------------------------------------------------------------------
+=================
 Throughout this guide, we call the environment **sgrna_design**. 
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
@@ -16,14 +16,14 @@ Throughout this guide, we call the environment **sgrna_design**.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Activate the environment.
------------------------------------------------------
+=================
 
 ``conda activate -n sgrna_design``
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
     
 Create a local copy of this repository and move into **sgrna_design** directory.
---------------------------------------------------------------------
+=================
 
 ``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
@@ -31,7 +31,7 @@ Create a local copy of this repository and move into **sgrna_design** directory.
 
 
 Set a bash variable equal to the chromosome of interest.
---------------------------------------------------------
+=================
 
 In this case we have chosen **U00096.3**
 
@@ -41,7 +41,7 @@ In this case we have chosen **U00096.3**
 
 
 Fetch the chromosome feature file, in genbank format.
----------------------------------
+=================
 
 Since the environment contains the NCBI Entrez Direct Utilities package, it is also &&highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as input to extract suitable sgRNA targets.
 
@@ -51,7 +51,7 @@ Since the environment contains the NCBI Entrez Direct Utilities package, it is a
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Use build_sgrna_library.py to generate a list of sgRNA targets.
-----------------------------------------------------------------
+=================
 
 It is recommended to use the following parameters to run the script, and will work **as is** -- if the environment variable was set and the genbank file was fetched using NCBI Entre Direct Utilities.
 
