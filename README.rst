@@ -1,8 +1,14 @@
 Note: These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+This set of instructions is meant to be used as a guide to automate the workflow for designing guides. However, the script **build_sgrna_library.py** is available for advanced users to incorporate into their own scripts.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
-==============================================================================================
+----------------------------------------------------------------------------------------------
 
 Throughout this guide, we call the environment **sgrna_design**. 
 
