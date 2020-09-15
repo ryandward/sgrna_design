@@ -87,7 +87,7 @@ Briefly check that the results are available before moving on.
 
 ``column -ts $'\t' ${GUIDE_TARGET}_sgrna.tsv | less``
 
-*You can escape this interface by typing ``q``*
+*You can escape this interface by typing* ``q``.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
