@@ -2,7 +2,9 @@ Note: These scripts are similar to the scripts from the https://github.com/traek
 
 sgRNA Design Scripts
 ====================
+
 Author: John S. Hawkins [really@gmail.com]
+
 -------------------------------------------------
 **Before installing, create an appropriate Conda environment by following this guide**
 -------------------------------------------------
