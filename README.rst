@@ -5,6 +5,7 @@ Before installing, create an appropriate Conda environment by following this gui
 ==================================================================================
 
 It is recommended to use the following command to obtain the prerequisites using Conda in a new environment called "sgrna_design":
+
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
 
 Activate the Conda environment called "sgrna_design":
@@ -12,13 +13,13 @@ Activate the Conda environment called "sgrna_design":
 
 ``conda activate -n sgrna_design``
     
-Create a local copy of this repository and move into that directory:
+Create a local copy of this repository and move into **sgrna_design** directory.
 --------------------------------------------------------------------
 
 ``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
-First, set a bash variable equal to the chromosome of interest.
--------------------------------------------------------------------------------------------------------
+Set a bash variable equal to the chromosome of interest.
+--------------------------------------------------------
 
 In this case we have chosen **U00096.3**
 
