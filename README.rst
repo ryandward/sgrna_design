@@ -1,9 +1,4 @@
-Note: These scripts are similar to the scripts from the https://github.com/traeki/sgrna_design repository, except they have been modified to yield bedtools compatible output. Additionally, NCBI Entrez Direct Utilities compatible scripts have been given as suggestions.
-
-sgRNA Design Scripts
-====================
-
-Author: John S. Hawkins [really@gmail.com]
+Note: These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
 -------------------------------------------------
 **Before installing, create an appropriate Conda environment by following this guide**
@@ -41,8 +36,10 @@ For this example, the list is given as "U00096.3_sgrna.tsv"
     ./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"
 
 
-Suggestions from orignal branch:
+Notes from the orignal branch:
 ====================
+
+Author: John S. Hawkins [really@gmail.com]
 
 For bacteria we suggest using guides that
 
