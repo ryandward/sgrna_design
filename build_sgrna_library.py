@@ -69,8 +69,8 @@ def extract_targets(infile_name, pam, target_len):
                 hit.group(2),
                 hit.group(1)[-len(pam):],
                 chrom,
-                hit.start() + 1,
-                hit.start() + 1 + target_len,
+                hit.start() + 0,
+                hit.start() + 0 + target_len,
                 False)
       name = t.id_str()
       raw_targets[name] = t
@@ -81,8 +81,8 @@ def extract_targets(infile_name, pam, target_len):
                 revcomp(hit.group(2)),
                 revcomp(hit.group(1))[-len(pam):],
                 chrom,
-                hit.start() + 1 + len(pam),
-                hit.start() + 1 + len(pam) + target_len,
+                hit.start() + 0 + len(pam),
+                hit.start() + 0 + len(pam) + target_len,
                 True)
       name = t.id_str()
       raw_targets[name] = t
