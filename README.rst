@@ -9,32 +9,25 @@ It is recommended to use the following command to obtain the prerequisites using
     conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'
 
 Activate the Conda environment called "sgrna_design":
-::
-    conda activate -n sgrna_design
+``conda activate -n sgrna_design``
     
 Create a local copy of this repository and move into that directory:
-::
-    git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design
+``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
 Since the environment contains the NCBI Entrez Direct Utilities package, it is also recommended to download the bacterial chromosomes directly from NCBI. 
 
 First, set a bash variable equal to the chromosome of interest, in this case we have chosen "U00096.3".
-::
-    GUIDE_TARGET="U00096.3"
+``GUIDE_TARGET="U00096.3"``
 
 Download the chromosome genbank file directly from NCBI:
 
-```
-efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."
-```
+``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."``
 
 ##Use build_sgrna_library.py to generate a list of sgRNA targets.
 It is recommended to use the following parameters to run the script.
 
 
-```
-./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"
-```
+``./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"``
 Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending "_sgrna.tsv". In this example: "U00096.3_sgrna.tsv".
 
 
