@@ -7,7 +7,7 @@ This set of instructions is meant to be used as a guide to automate the workflow
 These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
 
-
+---------------------------------
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -70,7 +70,7 @@ NCBI sometimes fails without warning, a failsafe has been built into this step. 
 Use build_sgrna_library.py to generate a list of sgRNA targets.
 =================
 
-It is recommended to use the following parameters to run the script, and will work **as is** -- if the environment variable was set and the genbank file was fetched using NCBI Entre Direct Utilities.
+It is recommended to use the following parameters to run the script, and will work **as is**, considering previous steps have been followed.
 
 ``./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"``
 
@@ -87,7 +87,7 @@ Briefly check that the results are available before moving on.
 
 ``column -ts $'\t' ${GUIDE_TARGET}_sgrna.tsv | less``
 
-*You can escape this interface by typing* ``q``.
+*Escape this interface by typing* ``q``.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
