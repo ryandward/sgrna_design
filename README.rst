@@ -7,10 +7,8 @@ This set of instructions is meant to be used as a guide to automate the workflow
 These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
 
----------------------------------
 
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 
 ********************************************
@@ -19,32 +17,32 @@ Quick-start Guide
 
 
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
-=================
+=============================================
 Throughout this guide, we call the environment **sgrna_design**. 
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 Activate the environment.
-=================
+=============================================
 
 ``conda activate -n sgrna_design``
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
     
 Create a local copy of this repository and move into sgrna_design directory.
-=================
+=============================================
 
 This step automates downloading the current iteration of this **sgrna_design** project into your present directory on your commandline. Navigate somewhere you'd like to install before continuing. After successfully acquiring this project, you change into the sgrna_design directory.
 
 ``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 
 Set a envionment variable equal to the accession number of the chromosome of interest.
-=================
+=============================================
 
 In any POSIX shell -- including bash, zsh, and fish -- the syntax is the same to define a variable. 
 
@@ -52,11 +50,11 @@ In this case we have chosen **U00096.3**, the circular chromosome from *Escheric
 
 ``GUIDE_TARGET="U00096.3"``
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 
 Fetch the chromosome feature file, in genbank format.
-=================
+=============================================
 
 Since the environment contains the NCBI Entrez Direct Utilities package, it is also **highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as sole input to extract suitable sgRNA targets.
 
@@ -65,19 +63,19 @@ Since the environment contains the NCBI Entrez Direct Utilities package, it is a
 
 NCBI sometimes fails without warning, a failsafe has been built into this step. If you see the warning *Emtpy file, try efetch step again.*, just hit the up arrow, and re-run this command.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 Use build_sgrna_library.py to generate a list of sgRNA targets.
-=================
+=============================================
 
 It is recommended to use the following parameters to run the script, and will work **as is**, considering previous steps have been followed.
 
 ``./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv"``
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 Accessing Results
-=================
+=============================================
 
 Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending **_sgrna.tsv**. 
 
@@ -89,10 +87,10 @@ Briefly check that the results are available before moving on.
 
 *Escape this interface by typing* ``q``.
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------
 
 Notes from the orignal branch:
-====================
+=============================================
 
 Author: John S. Hawkins [really@gmail.com]
 
