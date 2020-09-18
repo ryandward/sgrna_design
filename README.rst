@@ -2,7 +2,7 @@
 sgRNA Design Scripts for CRISPRi in Bacteria
 ********************************************
 
-This set of instructions is meant to be used as a guide to automate the workflow for designing guides. However, the script **build_sgrna_library.py** is available for advanced users to incorporate into their own scripts. 
+This set of instructions is meant to be used as a guide to automate the workflow for designing guides. However, the script **build_sgrna_library.py** is available for advanced users to incorporate into their own scripts.
 
 These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
@@ -18,7 +18,7 @@ Quick-start Guide
 
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
 =============================================
-Throughout this guide, we call the environment **sgrna_design**. 
+Throughout this guide, we call the environment **sgrna_design**.
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
 
@@ -30,7 +30,7 @@ Activate the environment.
 ``conda activate sgrna_design``
 
 ---------------------------------------------
-    
+
 Create a local copy of this repository and move into sgrna_design directory.
 =============================================
 
@@ -44,7 +44,7 @@ This step automates downloading the current iteration of this **sgrna_design** p
 Set a envionment variable equal to the accession number of the chromosome of interest.
 =============================================
 
-In any POSIX shell -- including bash, zsh, and fish -- the syntax is the same to define a variable. 
+In any POSIX shell -- including bash, zsh, and fish -- the syntax is the same to define a variable.
 
 In this case we have chosen **U00096.3**, the circular chromosome from *Escherichia coli* MG1655. The accession number is listed underneath the chromosome title -- here as **GenBank: U00096.3** from https://www.ncbi.nlm.nih.gov/nuccore/U00096. If you're not sure, check out the link and search for your organism.
 
@@ -59,7 +59,7 @@ Fetch the chromosome feature file, in genbank format.
 Since the environment contains the NCBI Entrez Direct Utilities package, it is also **highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as sole input to extract suitable sgRNA targets.
 
 
-``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo "Emtpy file, try efetch step again."``
+``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo  "\033[33;5mEmtpy file, try efetch step again.\033[0m"``
 
 NCBI sometimes fails without warning, a failsafe has been built into this step. If you see the warning *Emtpy file, try efetch step again.*, just hit the up arrow, and re-run this command.
 
@@ -77,7 +77,7 @@ It is recommended to use the following parameters to run the script, and will wo
 Accessing Results
 =============================================
 
-Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending **_sgrna.tsv**. 
+Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as GUIDE_TARGET by appending **_sgrna.tsv**.
 
 In this example, view the file **U00096.3_sgrna.tsv**. This file is fully compatible with both LibreOffice and Excel. Ensure that when importing, you choose variable length columns with **tab** as the delimiter.
 
