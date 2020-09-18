@@ -89,6 +89,22 @@ Briefly check that the results are available before moving on.
 
 ---------------------------------------------
 
+Formatting Results as Bed File
+=============================================
+
+If you plan to use the output for downstream processing, you can reformat the output as a bed file; the coordinates are standard zero-width compatible.
+
++----------+----------+-----------+---------+---+------+----------------+-----------+
+|Chromosome|Left Coord|Right Coord|Locus Tag|PAM|Strand|Sense/Anti-sense|Specificity|
++----------+----------+-----------+---------+---+------+----------------+-----------+
+
+The following produces a bed file called the file **U00096.3_sgrna.bed**, but the prefix will change based on the GUIDE_TARGET variable.
+
+``awk 'NR==1{next;}$8=="rev"{$8="-"} $8=="fwd"{$8="+"} {print $5, $6, $7, $1, $4, $8, $9, $10}' ${GUIDE_TARGET}_sgrna.tsv > ${GUIDE_TARGET}_sgrna.bed``
+
+---------------------------------------------
+
+
 Notes from the orignal branch:
 =============================================
 
