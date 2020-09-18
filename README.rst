@@ -50,7 +50,6 @@ In this case we have chosen **U00096.3**, the circular chromosome from *Escheric
 
 ---------------------------------------------
 
-
 Fetch the chromosome feature file, in genbank format.
 =============================================
 
@@ -96,10 +95,9 @@ If you plan to use the output for downstream processing, you can reformat the ou
 
 The following produces a bed file called the file **U00096.3_sgrna.bed**, but the prefix will change based on the GUIDE_TARGET variable.
 
-``awk 'NR==1{next;}$8=="rev"{$8="-"} $8=="fwd"{$8="+"} {print $5, $6, $7, $1, $4, $8, $9, $10}' ${GUIDE_TARGET}_sgrna.tsv > ${GUIDE_TARGET}_sgrna.bed``
+``awk 'BEGIN{FS="\t"; OFS=FS} NR==1{next} $8=="rev"{$8="-"} $8=="fwd"{$8="+"} {print $5, $6, $7, $1, $4, $8, $9, $10}' ${GUIDE_TARGET}_sgrna.tsv > ${GUIDE_TARGET}_sgrna.bed``
 
 ---------------------------------------------
-
 
 Notes from the orignal branch:
 =============================================
