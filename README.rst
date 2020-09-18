@@ -27,7 +27,7 @@ Throughout this guide, we call the environment **sgrna_design**.
 Activate the environment.
 =============================================
 
-``conda activate -n sgrna_design``
+``conda activate sgrna_design``
 
 ---------------------------------------------
     
