@@ -70,7 +70,7 @@ Use build_sgrna_library.py to generate a list of sgRNA targets.
 
 It is recommended to use the following parameters to run the script, and will work **as is**, considering previous steps have been followed.
 
-``./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv" || echo  "\033[33;5msgRNA design step failed.\033[0m"````
+``./build_sgrna_library.py --input_genbank_genome_name ${GUIDE_TARGET}.gb  --tsv_output_file ${GUIDE_TARGET}_sgrna.tsv && echo "Output stored in ${GUIDE_TARGET}_sgrna.tsv" || echo  "\033[33;5msgRNA design step failed.\033[0m"``
 
 ---------------------------------------------
 
