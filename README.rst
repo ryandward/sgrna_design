@@ -14,9 +14,17 @@ These sgRNA design scripts are forked from https://github.com/traeki/sgrna_desig
 ********************************************
 Quick-start Guide
 ********************************************
+
+This guide uses **Conda** as an environment management system to resolve all dependencies, with the caveat that it requires the user to install Conda first. For most Linux distributions, this should be trivial -- use the native package manager (``apt-get``, ``rpm``, ``pacman``, *etc*). Apple users can use ``brew``.
+
+Code demonstrated in monospace throughout this guide is designed for copy/paste directly into the shell using the terminal. 
+
+---------------------------------------------
+
+
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
 =============================================
-Throughout this guide, we call the environment **sgrna_design**. 
+Designate the environment **sgrna_design**, and declare dependencies. 
 
 ``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
 
