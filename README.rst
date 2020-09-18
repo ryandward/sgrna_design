@@ -83,9 +83,7 @@ In this example, view the file **U00096.3_sgrna.tsv**. This file is fully compat
 
 Briefly check that the results are available before moving on.
 
-``column -ts $'\t' ${GUIDE_TARGET}_sgrna.tsv | less``
-
-*Escape this interface by typing* ``q``.
+``less U00096.3_sgrna.tsv``
 
 ---------------------------------------------
 
