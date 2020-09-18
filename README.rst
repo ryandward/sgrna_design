@@ -87,7 +87,7 @@ Briefly check that the results are available before moving on.
 
 ---------------------------------------------
 
-Formatting Results as Bed File
+Formatting Results as Bed File (Optional)
 =============================================
 
 If you plan to use the output for downstream processing, you can reformat the output as a bed file; the coordinates are standard zero-width compatible.
