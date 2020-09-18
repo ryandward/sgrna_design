@@ -83,7 +83,7 @@ In this example, view the file **U00096.3_sgrna.tsv**. This file is fully compat
 
 Briefly check that the results are available before moving on.
 
-``less U00096.3_sgrna.tsv``
+``less ${GUIDE_TARGET}_sgrna.tsv``
 
 ---------------------------------------------
 
