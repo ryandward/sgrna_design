@@ -38,7 +38,6 @@ This step automates downloading the current iteration of this **sgrna_design** p
 
 ---------------------------------------------
 
-
 Set a envionment variable equal to the accession number of the chromosome of interest.
 =============================================
 
