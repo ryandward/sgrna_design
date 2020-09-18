@@ -184,7 +184,7 @@ def ascribe_specificity(targets, genome_fasta_name, sam_copy):
   """Set up bowtie stuff and repeatedly call mark_specificity_tier."""
   # Is there a bowtie index yet?
   if not os.path.exists(genome_fasta_name + '.1.ebwt'):
-    command = ['bowtie-build', genome_fasta_name, genome_fasta_name]
+    command = ['bowtie-build -q', genome_fasta_name, genome_fasta_name]
     build_job = subprocess.Popen(command)
     if build_job.wait() != 0:
       logging.fatal('Failed to build bowtie index')
