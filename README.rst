@@ -59,9 +59,9 @@ Fetch the chromosome feature file, in genbank format.
 Since the environment contains the NCBI Entrez Direct Utilities package, it is also **highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as sole input to extract suitable sgRNA targets.
 
 
-``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb | grep -iq ascii && echo "File contains data, continue to next step." || echo  "\033[33;5mEmtpy file, try efetch step again.\033[0m"````
+``efetch -db nuccore -format gb -id $GUIDE_TARGET > ${GUIDE_TARGET}.gb && file ${GUIDE_TARGET}.gb 2> /dev/null | grep -iq ascii && echo "File contains data, continue to next step." || echo  "\033[33;5mEmtpy file, try efetch step again.\033[0m"````
 
-NCBI sometimes fails without warning, a failsafe has been built into this step. If you see the warning *Emtpy file, try efetch step again.*, just hit the up arrow, and re-run this command.
+NCBI sometimes fails without warning. A warning will display: *Emtpy file, try efetch step again.* This can happen because of an improperly specified accession number, or a busy NCBI server. If you're sure the accession number is correct, try the command again.
 
 ---------------------------------------------
 
