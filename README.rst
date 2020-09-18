@@ -14,8 +14,6 @@ These sgRNA design scripts are forked from https://github.com/traeki/sgrna_desig
 ********************************************
 Quick-start Guide
 ********************************************
-
-
 Using conda, create an environment to acquire the dependencies and their appropriate versions.
 =============================================
 Throughout this guide, we call the environment **sgrna_design**. 
