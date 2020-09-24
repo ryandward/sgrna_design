@@ -90,6 +90,8 @@ In this case we have chosen **U00096.3**, the circular chromosome from *Escheric
 Formatting Results as Bed File (Optional)
 =============================================
 
+Consider using my tsv parser if you perform a lot of command-line interpretation and genome arithmetic. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an SQL database, but without having to set one up. https://github.com/ryandward/sele
+
 If you plan to use the output for downstream processing, you can reformat the output as a bed file; the coordinates are standard zero-width compatible.
 
 +----------+----------+-----------+---------+---+------+----------------+-----------+
@@ -100,7 +102,7 @@ The following produces a bed file called the file **U00096.3_sgrna.bed**, but th
 
 ::
 
-  # using my tsv parser: https://github.com/ryandward/sele, columns are callable via the header line.
+  # using my tsv parser, columns are callable via the header line.
   sele -q -c chrom,start,end,gene,pam,repldir,transdir,specificity ${ACC_NO}_sgrna.tsv | 
   sed 's/fwd/+/g' | 
   sed 's/rev/-/g' > ${ACC_NO}_sgrna.bed
