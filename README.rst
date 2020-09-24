@@ -75,8 +75,6 @@ Run sgRNA Design Script
 
 Run the main python script, producing a tab-separated variable file corresponding to the accession number appended appended by “_sgrna”. Upon successful completion, this command also confirms the name of the results file – here “U00096.3_sgrna.tsv”.
 
-In this case we have chosen **U00096.3**, the circular chromosome from *Escherichia coli* MG1655. The accession number is listed underneath the chromosome title -- here as **GenBank: U00096.3** from https://www.ncbi.nlm.nih.gov/nuccore/U00096. If you're not sure, check out the link and search for your organism.
-
 ::
 
   ./build_sgrna_library.py \
@@ -90,7 +88,7 @@ In this case we have chosen **U00096.3**, the circular chromosome from *Escheric
 Formatting Results as Bed File (Optional)
 =============================================
 
-If you wanted to use the output for downstream applications, you can always reformat the output as a ``bed`` file, which coordinate numbering system has always baffled me. Consider using my tsv parser if you do a lot of genome arithmetic, converting between formats can be a huge pain. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an SQL database, but without having to set one up for a one-time thing. 
+If you want to use the output for downstream applications, you can always reformat the output as a ``bed`` file, which coordinate numbering system has always baffled me. Consider using my tsv parser if you do a lot of genome arithmetic, converting between formats can be a huge pain. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an SQL database, but without having to set one up for a one-time thing. 
 
 **More instructions here:** https://github.com/ryandward/sele
 
