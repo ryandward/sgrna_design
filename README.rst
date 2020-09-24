@@ -90,9 +90,10 @@ In this case we have chosen **U00096.3**, the circular chromosome from *Escheric
 Formatting Results as Bed File (Optional)
 =============================================
 
-Consider using my tsv parser if you perform a lot of command-line interpretation and genome arithmetic. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an SQL database, but without having to set one up. https://github.com/ryandward/sele
+If you wanted to use the output for downstream applications, you can always reformat the output as a ``bed`` file, which coordinate numbering system has always baffled me. Consider using my tsv parser if you do a lot of genome arithmetic, converting between formats can be a huge pain. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an SQL database, but without having to set one up for a one-time thing. 
 
-If you plan to use the output for downstream processing, you can reformat the output as a bed file; the coordinates are standard zero-width compatible.
+**More instructions here:** https://github.com/ryandward/sele
+
 
 +----------+----------+-----------+---------+---+------+----------------+-----------+
 |Chromosome|Left Coord|Right Coord|Locus Tag|PAM|Strand|Sense/Anti-sense|Specificity|
