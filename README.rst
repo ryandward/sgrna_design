@@ -100,6 +100,15 @@ The following produces a bed file called the file **U00096.3_sgrna.bed**, but th
 
 ::
 
+  # using my tsv parser: https://github.com/ryandward/sele, columns are callable via the header line.
+  sele -q -c chrom,start,end,gene,pam,repldir,transdir,specificity ${ACC_NO}_sgrna.tsv | 
+  sed 's/fwd/+/g' | 
+  sed 's/rev/-/g' > ${ACC_NO}_sgrna.bed
+  
+
+::
+
+  # using awk, the command can be challenging to remember, because the columns are arbitrarily named in both coordinate systems.
   awk 'BEGIN  {FS = "\t" ; OFS = "\t"}
   NR==1       { next }
   $8 == "rev" { $8 = "-" } 
