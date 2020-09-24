@@ -91,8 +91,7 @@ It is recommended to use the following parameters to run the script, and will wo
   ./build_sgrna_library.py \
   --input_genbank_genome_name ${ACC_NO}.gb \
   --tsv_output_file ${ACC_NO}_sgrna.tsv && 
-  echo "\033[33;5Output stored in ${ACC_NO}_sgrna.tsv\033[0m" || 
-  echo "\033[33;5msgRNA design step failed.\033[0m"
+  echo "\033[33;5Output stored in ${ACC_NO}_sgrna.tsv\033[0m"
 
 ---------------------------------------------
 
