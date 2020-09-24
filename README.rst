@@ -72,10 +72,10 @@ Since the environment contains the NCBI Entrez Direct Utilities package, it is a
   efetch -db nuccore \
   -format gb \
   -id $ACC_NO > ${ACC_NO}.gb && 
-  file ${ACC_NO}.gb 2> /dev/null |
-  grep -iq ascii &&
-  echo "File contains data, continue to next step." ||
-  echo  "\033[33;5mEmtpy file, try efetch step again.\033[0m"
+  file ${ACC_NO}.gb | 
+  grep -iq ascii && 
+  echo "File contains data, continue." || 
+  echo "Empty file, retry this step."
 
 NCBI sometimes fails without warning. A warning will display: *Emtpy file, try efetch step again.* This can happen because of an improperly specified accession number, or a busy NCBI server. If you're sure the accession number is correct, try the command again.
 
@@ -91,8 +91,7 @@ It is recommended to use the following parameters to run the script, and will wo
   ./build_sgrna_library.py \
   --input_genbank_genome_name ${ACC_NO}.gb \
   --tsv_output_file ${ACC_NO}_sgrna.tsv && 
-  echo "\033[33;5Output stored in ${ACC_NO}_sgrna.tsv\033[0m"
-
+  echo "Output saved as ${ACC_NO}_sgrna.tsv"
 ---------------------------------------------
 
 Accessing Results
