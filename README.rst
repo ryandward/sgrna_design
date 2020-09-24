@@ -16,60 +16,49 @@ Quick-start Guide
 ********************************************
 
 
-Using conda, create an environment to acquire the dependencies and their appropriate versions.
+Download Dependencies for sgRNA Design Script
 =============================================
-Throughout this guide, we call the environment **sgrna_design**.
+
+Prepare a conda environment: “sgrna_design” to host the sgRNA design scripts. It is only necessary to perform environment creation once.
 
 ::
   
   conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'
 
----------------------------------------------
-
-Activate the environment.
-=============================================
+Retrieve the “sgrna_design” project from GitHub, then move into the newly created directory. It is only necessary to perform project download once.
 
 ::
 
-  conda activate sgrna_design``
+  git clone https://github.com/ryandward/sgrna_design.git && 
+  cd sgrna_design
 
 ---------------------------------------------
 
-Create a local copy of this repository and move into sgrna_design directory.
+Activate Conda Environment
 =============================================
 
-This step automates downloading the current iteration of this **sgrna_design** project into your present directory on your commandline. Navigate somewhere you'd like to install before continuing. After successfully acquiring this project, you change into the sgrna_design directory.
+Activate the environment to load script dependencies This is required every time a new terminal window is opened.
 
 ::
 
-  git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
+  conda activate sgrna_design
 
 ---------------------------------------------
 
-
-Set a envionment variable equal to the accession number of the chromosome of interest.
+Obtain Genome Sequence Data from NCBI Using the Accession Number
 =============================================
 
-In any POSIX shell -- including bash, zsh, and fish -- the syntax is the same to define a variable.
-
-In this case we have chosen **U00096.3**, the circular chromosome from *Escherichia coli* MG1655. The accession number is listed underneath the chromosome title -- here as **GenBank: U00096.3** from https://www.ncbi.nlm.nih.gov/nuccore/U00096. If you're not sure, check out the link and search for your organism.
+If not known, consult the NCBI Nucleotide Database (see Internet Resources) to locate the accession number corresponding to the chromosome of interest and adjust the environment variable “ACC_NO” accordingly. This example uses the E. coli MG1655 chromosome “U00096.3”, which number will serve as the template for the names of all other files.
 
 ::
 
   ACC_NO="U00096.3"
 
----------------------------------------------
-
-
-Fetch the chromosome feature file, in genbank format.
-=============================================
-
-Since the environment contains the NCBI Entrez Direct Utilities package, it is also **highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as sole input to extract suitable sgRNA targets.
-
+Retrieve and save the genbank chromosome – here automatically named “U00096.3.gb”. This command also issues a warning if NCBI returns an empty response and may be run multiple times as needed.
 
 ::
 
-  efetch -db nuccore \
+   efetch -db nuccore \
   -format gb \
   -id $ACC_NO > ${ACC_NO}.gb && 
   file ${ACC_NO}.gb | 
@@ -77,14 +66,16 @@ Since the environment contains the NCBI Entrez Direct Utilities package, it is a
   echo "File contains data, continue." || 
   echo "Empty file, retry this step."
 
-NCBI sometimes fails without warning. A warning will display: *Emtpy file, try efetch step again.* This can happen because of an improperly specified accession number, or a busy NCBI server. If you're sure the accession number is correct, try the command again.
 
 ---------------------------------------------
 
-Use build_sgrna_library.py to generate a list of sgRNA targets.
+
+Run sgRNA Design Script
 =============================================
 
-It is recommended to use the following parameters to run the script, and will work **as is**, considering previous steps have been followed.
+Run the main python script, producing a tab-separated variable file corresponding to the accession number appended appended by “_sgrna”. Upon successful completion, this command also confirms the name of the results file – here “U00096.3_sgrna.tsv”.
+
+In this case we have chosen **U00096.3**, the circular chromosome from *Escherichia coli* MG1655. The accession number is listed underneath the chromosome title -- here as **GenBank: U00096.3** from https://www.ncbi.nlm.nih.gov/nuccore/U00096. If you're not sure, check out the link and search for your organism.
 
 ::
 
@@ -94,20 +85,7 @@ It is recommended to use the following parameters to run the script, and will wo
   echo "Output saved as ${ACC_NO}_sgrna.tsv"
 ---------------------------------------------
 
-Accessing Results
-=============================================
 
-Results will be listed in a tab-separated variable (tsv) formatted file corresponding to the chromosome defined above as ACC_NO by appending **_sgrna.tsv**.
-
-In this example, view the file **U00096.3_sgrna.tsv**. This file is fully compatible with both LibreOffice and Excel. Ensure that when importing, you choose variable length columns with **tab** as the delimiter.
-
-Briefly check that the results are available before moving on.
-
-::
-
-  less ${ACC_NO}_sgrna.tsv
-
----------------------------------------------
 
 Formatting Results as Bed File (Optional)
 =============================================
