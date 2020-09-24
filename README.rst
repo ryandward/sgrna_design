@@ -20,14 +20,18 @@ Using conda, create an environment to acquire the dependencies and their appropr
 =============================================
 Throughout this guide, we call the environment **sgrna_design**.
 
-``conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'``
+::
+  
+  conda create -n sgrna_design -c bioconda 'bowtie=1.2.3' biopython pysam entrez-direct git 'python>3'
 
 ---------------------------------------------
 
 Activate the environment.
 =============================================
 
-``conda activate sgrna_design``
+::
+
+  conda activate sgrna_design``
 
 ---------------------------------------------
 
@@ -36,7 +40,9 @@ Create a local copy of this repository and move into sgrna_design directory.
 
 This step automates downloading the current iteration of this **sgrna_design** project into your present directory on your commandline. Navigate somewhere you'd like to install before continuing. After successfully acquiring this project, you change into the sgrna_design directory.
 
-``git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
+::
+
+  git clone https://github.com/ryandward/sgrna_design.git && cd sgrna_design``
 
 ---------------------------------------------
 
@@ -48,7 +54,9 @@ In any POSIX shell -- including bash, zsh, and fish -- the syntax is the same to
 
 In this case we have chosen **U00096.3**, the circular chromosome from *Escherichia coli* MG1655. The accession number is listed underneath the chromosome title -- here as **GenBank: U00096.3** from https://www.ncbi.nlm.nih.gov/nuccore/U00096. If you're not sure, check out the link and search for your organism.
 
-``ACC_NO="U00096.3"``
+::
+
+  ACC_NO="U00096.3"
 
 ---------------------------------------------
 
@@ -59,7 +67,15 @@ Fetch the chromosome feature file, in genbank format.
 Since the environment contains the NCBI Entrez Direct Utilities package, it is also **highly** recommended to download the bacterial chromosomes directly from NCBI. This file is used as sole input to extract suitable sgRNA targets.
 
 
-``efetch -db nuccore -format gb -id $ACC_NO > ${ACC_NO}.gb && file ${ACC_NO}.gb 2> /dev/null | grep -iq ascii && echo "File contains data, continue to next step." || echo  "\033[33;5mEmtpy file, try efetch step again.\033[0m"````
+::
+
+  efetch -db nuccore \
+  -format gb \
+  -id $ACC_NO > ${ACC_NO}.gb && 
+  file ${ACC_NO}.gb 2> /dev/null |
+  grep -iq ascii &&
+  echo "File contains data, continue to next step." ||
+  echo  "\033[33;5mEmtpy file, try efetch step again.\033[0m"
 
 NCBI sometimes fails without warning. A warning will display: *Emtpy file, try efetch step again.* This can happen because of an improperly specified accession number, or a busy NCBI server. If you're sure the accession number is correct, try the command again.
 
@@ -70,7 +86,13 @@ Use build_sgrna_library.py to generate a list of sgRNA targets.
 
 It is recommended to use the following parameters to run the script, and will work **as is**, considering previous steps have been followed.
 
-``./build_sgrna_library.py --input_genbank_genome_name ${ACC_NO}.gb  --tsv_output_file ${ACC_NO}_sgrna.tsv && echo "Output stored in ${ACC_NO}_sgrna.tsv" || echo  "\033[33;5msgRNA design step failed.\033[0m"``
+::
+
+  ./build_sgrna_library.py \
+  --input_genbank_genome_name ${ACC_NO}.gb \
+  --tsv_output_file ${ACC_NO}_sgrna.tsv && 
+  echo "Output stored in ${ACC_NO}_sgrna.tsv" || 
+  echo  "\033[33;5msgRNA design step failed.\033[0m"
 
 ---------------------------------------------
 
@@ -83,7 +105,9 @@ In this example, view the file **U00096.3_sgrna.tsv**. This file is fully compat
 
 Briefly check that the results are available before moving on.
 
-``less ${ACC_NO}_sgrna.tsv``
+::
+
+  less ${ACC_NO}_sgrna.tsv
 
 ---------------------------------------------
 
@@ -98,7 +122,9 @@ If you plan to use the output for downstream processing, you can reformat the ou
 
 The following produces a bed file called the file **U00096.3_sgrna.bed**, but the prefix will change based on the ACC_NO variable.
 
-``awk 'NR==1{next;}$8=="rev"{$8="-"} $8=="fwd"{$8="+"} {print $5, $6, $7, $1, $4, $8, $9, $10}' ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed``
+::
+
+  awk 'NR==1{next;}$8=="rev"{$8="-"} $8=="fwd"{$8="+"} {print $5, $6, $7, $1, $4, $8, $9, $10}' ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed
 
 ---------------------------------------------
 
