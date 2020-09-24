@@ -58,7 +58,7 @@ Retrieve and save the genbank chromosome – here automatically named “U00096.
 
 ::
 
-   efetch -db nuccore \
+  efetch -db nuccore \
   -format gb \
   -id $ACC_NO > ${ACC_NO}.gb && 
   file ${ACC_NO}.gb | 
