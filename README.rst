@@ -122,7 +122,11 @@ The following produces a bed file called the file **U00096.3_sgrna.bed**, but th
 
 ::
 
-  awk 'NR==1{next;}$8=="rev"{$8="-"} $8=="fwd"{$8="+"} {print $5, $6, $7, $1, $4, $8, $9, $10}' ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed
+  awk 'NR==1{ next }
+  $8 == "rev" { $8 = "-" } 
+  $8 == "fwd" { $8 = "+" } 
+  { print $5, $6, $7, $1, $4, $8, $9, $10 }' \
+  ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed
 
 ---------------------------------------------
 
