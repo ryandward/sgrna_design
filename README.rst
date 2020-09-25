@@ -37,7 +37,7 @@ Retrieve the “sgrna_design” project from GitHub, then move into the newly cr
 Activate Conda Environment
 =============================================
 
-Activate the environment to load script dependencies This is required every time a new terminal window is opened.
+Activate the environment to load script dependencies. This is required every time a new terminal window is opened.
 
 ::
 
