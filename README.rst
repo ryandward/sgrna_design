@@ -102,9 +102,13 @@ The following produces a bed file called the file **U00096.3_sgrna.bed**, but th
 ::
 
   # using my tsv parser, columns are callable via the header line.
-  sele -q -c chrom,start,end,gene,pam,repldir,transdir,specificity ${ACC_NO}_sgrna.tsv | 
-  sed 's/fwd/+/g' | 
-  sed 's/rev/-/g' > ${ACC_NO}_sgrna.bed
+  # moreover, names can be matched and conditionally updated.
+  # in this case, turning "rev" into "-" and "fwd" into "+"
+  
+  sele \
+    -c 'chrom,start,end,gene,pam,repldir,transdir,specificity' \ 
+    -u 'repldir==fwd:repldir=+,repldir==rev:repldir=-' \
+    U00096.3_sgrna.tsv  ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed
   
 
 ::
