@@ -109,6 +109,7 @@ The rest can be used to cram information into downstream analysis.
 
 ::
 
+  # method 1:
   # using my tsv parser, columns are callable via the header line.
   # moreover, names can be matched and conditionally updated on the fly.
   # in this case, turning "rev" into "-" and "fwd" into "+".
@@ -121,6 +122,7 @@ The rest can be used to cram information into downstream analysis.
 
 ::
 
+  # method 2:
   # i recommend against using awk, since the fields are arbitrarily
   # referenced. it can be tough to remember to call the field numbers in 
   # the specific order bed requires. 
