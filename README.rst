@@ -88,16 +88,24 @@ Run the main python script, producing a tab-separated variable file correspondin
 Formatting Results as Bed File (Optional)
 =============================================
 
-If you want to use the output for downstream applications, you can always reformat the output as a ``bed`` file, which coordinate numbering system has always baffled me. Consider using my tsv parser if you do a lot of genome arithmetic, converting between formats can be a huge pain. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an SQL database, but without having to set one up for a one-time thing. 
+If you want to use the output for downstream applications, you can reformat the output as a ``bed`` file.
+Consider using my tsv parser if you do a lot of genome arithmetic, converting between formats can be a 
+huge pain. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an 
+SQL database, but without having to set one. 
 
 **More instructions here:** https://github.com/ryandward/sele
+
+The following produces a bed file called the file **U00096.3_sgrna.bed**, 
+the file will be named based on the ACC_NO variable.
+
+To create a bed file six fields are usually required, fields 1, 2, 3, and 6 are invariable. 
+The rest can be used to cram information into downstream analysis. 
 
 
 +----------+----------+-----------+---------+---+------+----------------+-----------+
 |Chromosome|Left Coord|Right Coord|Locus Tag|PAM|Strand|Sense/Anti-sense|Specificity|
 +----------+----------+-----------+---------+---+------+----------------+-----------+
 
-The following produces a bed file called the file **U00096.3_sgrna.bed**, but the prefix will change based on the ACC_NO variable.
 
 ::
 
