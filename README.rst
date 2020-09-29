@@ -121,7 +121,10 @@ The rest can be used to cram information into downstream analysis.
 
 ::
 
-  # using awk, the command can be challenging to remember, because the columns are arbitrarily named in both coordinate systems.
+  # i recommend against using awk, since the fields are arbitrarily
+  # referenced. it can be tough to remember to call the field numbers in 
+  # the specific order bed requires. 
+  
   awk 'BEGIN  {FS = "\t" ; OFS = "\t"}
   NR==1       { next }
   $8 == "rev" { $8 = "-" } 
