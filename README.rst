@@ -108,7 +108,7 @@ The following produces a bed file called the file **U00096.3_sgrna.bed**, but th
   sele \
     -c 'chrom,start,end,gene,pam,repldir,transdir,specificity' \ 
     -u 'repldir==fwd:repldir=+,repldir==rev:repldir=-' \
-    U00096.3_sgrna.tsv  ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed
+    U00096.3_sgrna.tsv > ${ACC_NO}_sgrna.bed
   
 
 ::
