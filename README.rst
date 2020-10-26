@@ -45,7 +45,7 @@ Activate the environment to load script dependencies. This is required every tim
 
 ---------------------------------------------
 
-Obtain Genome Sequence Data from NCBI Using the Accession Number
+Obtain Genome Sequence Data from NCBI Using the Accession Number (Not RefSeq!)
 =============================================
 
 If not known, consult the NCBI Nucleotide Database (see Internet Resources) to locate the accession number corresponding to the chromosome of interest and adjust the environment variable “ACC_NO” accordingly. This example uses the E. coli MG1655 chromosome “U00096.3”, which number will serve as the template for the names of all other files.
