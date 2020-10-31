@@ -124,7 +124,7 @@ The rest can be used to cram information into downstream analysis.
   sele -q \                                                      
     -c 'chrom,start,end,gene,pam,repldir,transdir,specificity' \ 
     -u 'repldir==fwd:repldir=+,repldir==rev:repldir=-' \         
-    U00096.3_sgrna.tsv > ${ACC_NO}_sgrna.bed
+   ${ACC_NO}_sgrna.tsv > ${ACC_NO}_sgrna.bed
   
 
 ::
