@@ -116,9 +116,9 @@ The rest can be used to cram information into downstream analysis.
   # moreover, names can be matched and conditionally updated on the fly.
   # in this case, turning "rev" into "-" and "fwd" into "+".
   
-  sele -q \
-    -c 'chrom,start,end,gene,pam,repldir,transdir,specificity' \ 
-    -u 'repldir==fwd:repldir=+,repldir==rev:repldir=-' \
+  sele -q \                                                      # -q for "quiet", i.e. suppress header
+    -c 'chrom,start,end,gene,pam,repldir,transdir,specificity' \ # -c for "column" 
+    -u 'repldir==fwd:repldir=+,repldir==rev:repldir=-' \         # -u for "update"
     U00096.3_sgrna.tsv > ${ACC_NO}_sgrna.bed
   
 
