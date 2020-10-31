@@ -90,8 +90,10 @@ Formatting Results as Bed File (Optional)
 
 If you want to use the output for downstream applications, you can reformat the output as a ``bed`` file.
 Consider using my tsv parser if you do a lot of genome arithmetic, converting between formats can be a 
-huge pain. The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an 
-SQL database, but without having to set one. 
+huge pain. 
+
+The ``sele`` command functions like an ad-hoc ``select`` command such as you might find in an 
+SQL database, but much more convenient -- since the input is a tsv file, and runs in a normal bash environment. 
 
 **More instructions here:** https://github.com/ryandward/sele
 
