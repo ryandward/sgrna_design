@@ -125,9 +125,10 @@ The rest can be used to cram information into downstream analysis.
 ::
 
   # method 2:
-  # i recommend against using awk, since the fields are arbitrarily
-  # referenced. it can be tough to remember to call the field numbers in 
-  # the specific order bed requires. 
+  # using bare awk can be tough, since the fields are arbitrarily
+  # referenced. every subsequent step will reorder fields if they 
+  # are in a different order. (e.g. $1 does not always correspond to
+  # chromosome).
   
   awk 'BEGIN  {FS = "\t" ; OFS = "\t"}
   NR==1       { next }
