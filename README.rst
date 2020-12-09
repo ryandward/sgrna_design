@@ -4,7 +4,7 @@ sgRNA Design Scripts for CRISPRi in Bacteria
 
 This set of instructions is meant to be used as a guide to automate the workflow for designing guides. However, the script **build_sgrna_library.py** is available for advanced users to incorporate into their own scripts.
 
-These sgRNA design scripts are forked from https://github.com/traeki/sgrna_design. These have been modified to yield zero-based output, with coordinates corresponding to the genome of reference. Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
+These sgRNA design scripts are forked from initial work provided by John S. Hawkins (https://github.com/traeki/sgrna_design). Additionally, NCBI Entrez Direct Utilities commands have been given as suggestions.
 
 
 
